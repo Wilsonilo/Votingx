@@ -42,21 +42,21 @@ export class LoginComponent implements OnInit {
   onSubmitLogin({value, valid}){
 
     if(valid){
-      	
+        
         //Prepare Headers
-      	var headerslogin = new Headers();
-      	headerslogin.append('Content-Type', 'application/json');
-      	
-      	//Set information:
-      	var username = this.userLogin['username'];
-      	var password = this.userLogin['password'];
-      	
+        var headerslogin = new Headers();
+        headerslogin.append('Content-Type', 'application/json');
+        
+        //Set information:
+        var username = this.userLogin['username'];
+        var password = this.userLogin['password'];
+        
         //Last check for empty
-      	if( username !== undefined && password !== undefined) {
-      		
+        if( username !== undefined && password !== undefined) {
+          
           //Send and get response
-        	this.http.post('http://localhost:3000/api/users/login', this.userLogin, headerslogin)
-        	.map(res => res.json()).subscribe(res => {
+          this.http.post('api/users/login', this.userLogin, headerslogin)
+          .map(res => res.json()).subscribe(res => {
 
               console.log(res);
               
@@ -128,7 +128,7 @@ export class LoginComponent implements OnInit {
         if( username !== undefined && password !== undefined && passwordRepeat !== undefined) {
           
           //Send and get response
-          this.http.post('http://localhost:3000/api/users/register', this.userRegister, headers)
+          this.http.post('api/users/register', this.userRegister, headers)
           .map(res => res.json()).subscribe(res => {
 
             console.log(res);
