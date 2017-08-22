@@ -8,8 +8,8 @@ Repo for the project "Building a Voting App" from freecodecamp.org.
 * Project uses Angular 2 + and other dependencies, check package.json
 * I mainly use 4 enviroments vars to work with the app
 	*  **proccess.env.MLABDB** which connects to the Mlab database.
-	*  **APIKEYSEARCHGOOGLE** as a secret/salt for different parts of the app (can be whatever you want does not need to be an actual API Key from Google i just felt lazy)
-	*  **FREECODECAMPTWITTERKEY** and **FREECODECAMPTWITTERSECRET** for the Twitter Auth API.
+	*  **proccess.env.APIKEYSEARCHGOOGLE** as a secret/salt for different parts of the app (can be whatever you want does not need to be an actual API Key from Google i just felt lazy)
+	*  **proccess.env.FREECODECAMPTWITTERKEY** and **proccess.env.FREECODECAMPTWITTERSECRET** for the Twitter Auth API.
 
 	
 ### Road:
