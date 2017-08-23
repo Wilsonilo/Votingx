@@ -247,7 +247,7 @@ var DashboardComponent = (function () {
                 }
             }
             //Get user if is holded on the singleton
-            // this.User = this.dataService.getUser();
+            _this.User = _this.dataService.getUser();
             //Check if is logged
             if (_this.User === undefined) {
                 _this.router.navigateByUrl('login');

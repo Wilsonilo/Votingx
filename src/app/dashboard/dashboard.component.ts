@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
       }
 
       //Get user if is holded on the singleton
-      // this.User = this.dataService.getUser();
+      this.User = this.dataService.getUser();
 
       //Check if is logged
       if(this.User === undefined){
