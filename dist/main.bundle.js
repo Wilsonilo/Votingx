@@ -236,7 +236,7 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.checkForCallback = function () {
         var _this = this;
         console.log("calling check for callback");
-        this.http.get('http://localhost:3000/api/users/session').map(function (res) { return res.json(); }).subscribe(function (res) {
+        this.http.get('api/users/session').map(function (res) { return res.json(); }).subscribe(function (res) {
             if (res !== undefined) {
                 if (res._id !== undefined && res.username !== undefined) {
                     //User is up, set if is not set yet.
@@ -249,16 +249,16 @@ var DashboardComponent = (function () {
             //Get user if is holded on the singleton
             // this.User = this.dataService.getUser();
             //Check if is logged
-            // if(this.User === undefined){
-            // 	this.router.navigateByUrl('login');
-            // }
+            if (_this.User === undefined) {
+                _this.router.navigateByUrl('login');
+            }
             // Get polls from this user
-            //Temp
-            _this.User = {
-                id: '599a46ebf16d609759808ed7',
-                username: 'TEMP',
-            };
-            _this.dataService.setUser('599a46ebf16d609759808ed7', 'TempUser');
+            //Development
+            // this.User = {
+            //   id : '',
+            //   username: 'TEMP',
+            // }
+            // this.dataService.setUser('', 'TempUser')
             if (_this.User !== undefined) {
                 //Set binding for new polls
                 _this.FormPoll = {
@@ -302,7 +302,7 @@ var DashboardComponent = (function () {
                 }
             };
             //Send and get response
-            this.http.post('http://localhost:3000/api/polls/new', pollCreation, headersPoll)
+            this.http.post('api/polls/new', pollCreation, headersPoll)
                 .map(function (res) { return res.json(); }).subscribe(function (res) {
                 if (res.status === 'success') {
                     //Reset
@@ -330,7 +330,7 @@ var DashboardComponent = (function () {
         var headersPoll = new Headers();
         headersPoll.append('Content-Type', 'application/json');
         //Send and get response
-        this.http.delete('http://localhost:3000/api/polls/delete/' + this.User.id + '/' + pollId)
+        this.http.delete('api/polls/delete/' + this.User.id + '/' + pollId)
             .map(function (res) { return res.json(); }).subscribe(function (res) {
             if (res.status === 'success') {
                 //Refresh
@@ -342,7 +342,7 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.refreshUserPolls = function () {
         var _this = this;
         //Ask Api for polls of user
-        this.http.get('http://localhost:3000/api/polls/' + this.User.id).map(function (res) { return res.json(); }).subscribe(function (res) {
+        this.http.get('api/polls/' + this.User.id).map(function (res) { return res.json(); }).subscribe(function (res) {
             if (res.polls !== undefined) {
                 _this.Polls = res.polls;
                 if (_this.Polls.length > 0) {
@@ -501,7 +501,7 @@ var LoginComponent = (function () {
             //Last check for empty
             if (username !== undefined && password !== undefined) {
                 //Send and get response
-                this.http.post('http://localhost:3000/api/users/login', this.userLogin, headerslogin)
+                this.http.post('api/users/login', this.userLogin, headerslogin)
                     .map(function (res) { return res.json(); }).subscribe(function (res) {
                     console.log(res);
                     //Set User
@@ -557,7 +557,7 @@ var LoginComponent = (function () {
             //Last check for empty
             if (username !== undefined && password !== undefined && passwordRepeat !== undefined) {
                 //Send and get response
-                this.http.post('http://localhost:3000/api/users/register', this.userRegister, headers)
+                this.http.post('api/users/register', this.userRegister, headers)
                     .map(function (res) { return res.json(); }).subscribe(function (res) {
                     console.log(res);
                     if (res.status === "error") {
@@ -658,7 +658,7 @@ var PollComponent = (function () {
         this.doughnutChartData = [];
         this.novotes = true;
         this.loadtxt = 'Loading...';
-        this.http.get('http://localhost:3000/api/polls/info/' + userId + '/' + pollId).map(function (res) { return res.json(); }).subscribe(function (res) {
+        this.http.get('api/polls/info/' + userId + '/' + pollId).map(function (res) { return res.json(); }).subscribe(function (res) {
             if (res.poll !== undefined) {
                 //Set Question
                 _this.question = res.poll.content.question;
@@ -709,7 +709,7 @@ var PollComponent = (function () {
                 vote: this.valselect
             };
             //Send post request
-            this.http.post('http://localhost:3000/api/polls/vote', voteRequest, headerslogin)
+            this.http.post('api/polls/vote', voteRequest, headerslogin)
                 .map(function (res) { return res.json(); }).subscribe(function (res) {
                 if (res.status === 'success') {
                     _this.uservoted = true;

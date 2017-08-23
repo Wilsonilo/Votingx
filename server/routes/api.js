@@ -395,7 +395,7 @@ passport.use(new LocalStrategy(
 passport.use(new TwitterStrategy({
     consumerKey: process.env.FREECODECAMPTWITTERKEY,
     consumerSecret: process.env.FREECODECAMPTWITTERSECRET,
-    callbackURL: "http://localhost:3000/api/auth/twitter/callback"
+    callbackURL: "twitter/callback"
   },
   function(token, tokenSecret, profile, done) {
 
@@ -435,10 +435,6 @@ passport.use(new TwitterStrategy({
 
 //Twitter Handlers
 routerAPI.get('/auth/twitter', passport.authenticate('twitter'));
-
-routerAPI.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/dashboard',
-                                     failureRedirect: '/login' }));
 
 
 ///////// USERS
