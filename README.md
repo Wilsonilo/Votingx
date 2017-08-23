@@ -16,7 +16,7 @@ Repo for the project "Building a Voting App" from freecodecamp.org.
 *  Please check the issues, specially the one with passport-twitter.
 
 ### Cloud9 / Heroku / DigitalOcean / etc:
-* Check your environment vars, this is are really important, usually an "export VAR=VALUE" or a set on .bashrc or .zshrc should be enough.
+* Check your environment vars, this is really important, usually an "export VAR=VALUE" or a set on .bashrc or .zshrc should be enough.
 * Check that you have mongo and node in good shape, in the case of Cloud 9: sudo apt-get install mongodb-org should help you out. 
 
 
