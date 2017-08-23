@@ -5,7 +5,7 @@ Repo for the project "Building a Voting App" from freecodecamp.org.
 [https://www.freecodecamp.org/challenges/build-a-voting-app](https://www.freecodecamp.org/challenges/build-a-voting-app)
 
 ### Demo:
-[http://votingx-wilsonilo.c9users.io/](http://votingx-wilsonilo.c9users.io/d)
+[http://votingx-wilsonilo.c9users.io/](http://votingx-wilsonilo.c9users.io)
 
 ### Notes:
 * Project uses Angular 2 + and other dependencies, check package.json
