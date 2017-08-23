@@ -68,23 +68,17 @@ export class PollComponent implements OnInit {
           var votes = res.poll.content.answers[i].votes;
           if(votes !== undefined){
             data.push(parseInt(votes));
+            this.loadtxt = 'No votes yet.';
+            this.novotes = false;
           } else {
-            if(data.length > 0){
-              data.push(0);
-            }
+            data.push(0);
           }
           
           //Check if we are done
           if(i === res.poll.content.answers.length-1){
 
-            //If we have votes.
-            if(data.length > 0){
-              this.doughnutChartData = data;
-              this.novotes = false
-            } else {
-              this.loadtxt = 'No votes yet.';
-            }
-            //console.log(this.doughnutChartLabels, this.doughnutChartData);
+            //Update data.
+            this.doughnutChartData = data;
 
           }
           

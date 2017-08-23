@@ -671,23 +671,16 @@ var PollComponent = (function () {
                     var votes = res.poll.content.answers[i].votes;
                     if (votes !== undefined) {
                         data.push(parseInt(votes));
+                        _this.loadtxt = 'No votes yet.';
+                        _this.novotes = false;
                     }
                     else {
-                        if (data.length > 0) {
-                            data.push(0);
-                        }
+                        data.push(0);
                     }
                     //Check if we are done
                     if (i === res.poll.content.answers.length - 1) {
-                        //If we have votes.
-                        if (data.length > 0) {
-                            _this.doughnutChartData = data;
-                            _this.novotes = false;
-                        }
-                        else {
-                            _this.loadtxt = 'No votes yet.';
-                        }
-                        //console.log(this.doughnutChartLabels, this.doughnutChartData);
+                        //Update data.
+                        _this.doughnutChartData = data;
                     }
                 }
             }
