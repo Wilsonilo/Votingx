@@ -395,7 +395,7 @@ passport.use(new LocalStrategy(
 passport.use(new TwitterStrategy({
     consumerKey: process.env.FREECODECAMPTWITTERKEY,
     consumerSecret: process.env.FREECODECAMPTWITTERSECRET,
-    callbackURL: "twitter/callback"
+    callbackURL: "http://votingx-wilsonilo.c9users.io/api/auth/twitter/callback"
   },
   function(token, tokenSecret, profile, done) {
 
@@ -436,6 +436,9 @@ passport.use(new TwitterStrategy({
 //Twitter Handlers
 routerAPI.get('/auth/twitter', passport.authenticate('twitter'));
 
+routerAPI.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { successRedirect: '/dashboard',
+                                     failureRedirect: '/login' }));
 
 ///////// USERS
 

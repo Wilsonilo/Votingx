@@ -82,11 +82,6 @@ app.use(expressValidator({
   }
 }));
 
-//callback from twitter
-app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { successRedirect: '/dashboard',
-                                     failureRedirect: '/login' }));
-
 // Set our api routes
 app.use('/api', api);
 
