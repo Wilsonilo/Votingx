@@ -5,7 +5,11 @@ Repo for the project "Building a Voting App" from freecodecamp.org.
 [https://www.freecodecamp.org/challenges/build-a-voting-app](https://www.freecodecamp.org/challenges/build-a-voting-app)
 
 ### Demo:
-[http://votingx-wilsonilo.c9users.io/](http://votingx-wilsonilo.c9users.io)
+[https://votingx.herokuapp.com/](https://votingx.herokuapp.com/)
+[Poll Result Demo](https://votingx.herokuapp.com/polls/599a46ebf16d609759808ed7/4d8e2ecc-38f2-266f-5320-65235f8d97e8)
+
+![Votingx1](http://wilsonmunoz.net/etc/githubgifs/votingx1.jpg "Votingx1")
+![Votingx2](http://wilsonmunoz.net/etc/githubgifs/votingx2.png "Votingx2")
 
 ### Notes:
 * Project uses Angular 2 + and other dependencies, check package.json
